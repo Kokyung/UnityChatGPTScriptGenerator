@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BKK.ChatGPTEditor
 {
-    public class ChatGPTScriptCompilerWindow : EditorWindow
+    public class ChatGPTScriptGeneratorWindow : EditorWindow
     {
         private GUIStyle titleStyle;
 
@@ -15,12 +15,12 @@ namespace BKK.ChatGPTEditor
 
         private const string assetFileName = "Answer Asset.asset";
 
-        [MenuItem("Window/BKK/Chat GPT Script Compiler")]
-        private static void OpenChatGPTScriptCompilerWindow()
+        [MenuItem("Window/BKK/Chat GPT Script Generator")]
+        private static void OpenChatGPTScriptGeneratorWindow()
         {
-            ChatGPTScriptCompilerWindow window =
-                GetWindow<ChatGPTScriptCompilerWindow>(false, "Chat GPT Script Compiler", true);
-            window.titleContent = new GUIContent("Chat GPT Script Compiler");
+            ChatGPTScriptGeneratorWindow window =
+                GetWindow<ChatGPTScriptGeneratorWindow>(false, "Chat GPT Script Generator", true);
+            window.titleContent = new GUIContent("Chat GPT Script Generator");
         }
 
         private void OnEnable()
@@ -48,7 +48,7 @@ namespace BKK.ChatGPTEditor
         {
             EditorGUILayout.BeginVertical();
 
-            EditorGUILayout.LabelField("Chat GPT Script Compiler", titleStyle);
+            EditorGUILayout.LabelField("Chat GPT Script Generator", titleStyle);
 
             EditorGUILayout.Separator();
             EditorGUILayout.Separator();
