@@ -11,6 +11,8 @@ namespace BKK.ChatGPTEditor
         private SerializedProperty m_OpenAiApiKey;
         private SerializedProperty m_Model;
         private SerializedProperty m_CreateAssetPath;
+
+        private GUIStyle warnLabelStyle;
         
         private void OnEnable()
         {
@@ -19,12 +21,21 @@ namespace BKK.ChatGPTEditor
             m_OpenAiApiKey = serializedObject.FindProperty("openAiApiKey");
             m_Model = serializedObject.FindProperty("model");
             m_CreateAssetPath = serializedObject.FindProperty("createAssetPath");
+
+            warnLabelStyle = new GUIStyle
+            {
+                normal = new GUIStyleState
+                {
+                    textColor = Color.cyan
+                }
+            };
         }
 
         public override void OnInspectorGUI()
         {
             EditorGUILayout.PropertyField(m_OpenAiApiKey);
-            EditorGUILayout.PropertyField(m_Model, new GUIContent("Model( Current text-davinci-003 Only )"));
+            EditorGUILayout.PropertyField(m_Model);
+            EditorGUILayout.LabelField("Warning: Current text-davinci-003 Only", warnLabelStyle);
             EditorGUILayout.PropertyField(m_CreateAssetPath);
         }
     }

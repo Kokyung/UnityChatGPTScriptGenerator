@@ -25,7 +25,7 @@ namespace BKK.ChatGPTEditor
 
         private void OnGUI()
         {
-            settingsEditor.DrawDefaultInspector();
+            settingsEditor.OnInspectorGUI();
             EditorUtility.SetDirty(settingsEditor.target);
         }
     }
