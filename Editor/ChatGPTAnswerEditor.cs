@@ -15,6 +15,7 @@ namespace BKK.ChatGPTEditor
         private const string standbyMessage = "Ready to Answer.";
 
         private const string apiKeyErrorMessage = "API Key is Empty.";
+        private const string modelErrorMessage = "Model Name is Empty.";
         private const string settingErrorMessage = "ChatGPTSettings not Exists.";
 
         private Vector2 scrollA;
@@ -38,20 +39,20 @@ namespace BKK.ChatGPTEditor
 
             EditorGUILayout.Separator();
 
-            EditorGUILayout.TextField("File Name", answerAsset.fileName);
+            answerAsset.fileName = EditorGUILayout.TextField("File Name", answerAsset.fileName);
 
-            EditorGUILayout.TextField("Save Path", answerAsset.savePath);
+            answerAsset.savePath = EditorGUILayout.TextField("Save Path", answerAsset.savePath);
 
             EditorGUILayout.Separator();
 
-            if (!settings || settings.ApiKeyIsEmpty()) GUI.enabled = false;
+            if (!settings || settings.ApiKeyIsEmpty() || settings.ModelIsEmpty()) GUI.enabled = false;
             if (GUILayout.Button("Send Answer"))
             {
                 answerAsset.SendAnswer();
                 answerAsset.answerSent = true;
             }
 
-            if (!settings || settings.ApiKeyIsEmpty()) GUI.enabled = true;
+            if (!settings || settings.ApiKeyIsEmpty() || settings.ModelIsEmpty()) GUI.enabled = true;
 
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
@@ -70,6 +71,10 @@ namespace BKK.ChatGPTEditor
                     if (settings.ApiKeyIsEmpty())
                     {
                         GUILayout.Label(apiKeyErrorMessage);
+                    }
+                    else if (settings.ModelIsEmpty())
+                    {
+                        GUILayout.Label(modelErrorMessage);
                     }
                     else
                     {

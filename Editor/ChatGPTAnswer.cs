@@ -21,7 +21,7 @@ namespace BKK.ChatGPTEditor
         {
             Debug.Log("Answer Sent");
             var settings = Resources.Load<ChatGPTSettings>("ChatGPTSettings");
-            EditorBackgroundUtility.StartBackgroundTask(GenerateResponse(settings.apiKey, question, SetAnswer));
+            EditorBackgroundUtility.StartBackgroundTask(GenerateResponse(settings.apiKey, settings.aiModel,question, SetAnswer));
         }
 
         private void SetAnswer(string _answer)
@@ -29,11 +29,11 @@ namespace BKK.ChatGPTEditor
             answer = _answer.Trim();
         }
 
-        private IEnumerator GenerateResponse(string apiKey, string prompt, Action<string> resultAction)
+        private IEnumerator GenerateResponse(string apiKey, string model, string prompt, Action<string> resultAction)
         {
             ChatGPTCompletionData completionData = new ChatGPTCompletionData
             {
-                model = "text-davinci-003",
+                model = model,
                 prompt = prompt,
                 max_tokens = 1000,
                 temperature = 0,
@@ -63,9 +63,8 @@ namespace BKK.ChatGPTEditor
                     Debug.Log("ChatGPT Answered!");
                     var result = JsonUtility.FromJson<ChatGPTResult>(request.downloadHandler.text);
                     resultAction?.Invoke(result.choices[0].text);
-
-                    answerSent = false;
                 }
+                answerSent = false;
             }
         }
 

@@ -7,9 +7,11 @@ namespace BKK.ChatGPTEditor
     public class ChatGPTSettings : ScriptableObject
     {
         [SerializeField] private string openAiApiKey;
+        [SerializeField] private string model = "text-davinci-003";
         [SerializeField] private string createAssetPath = "Assets/Editor/ChatGPTAnswers";
 
         public string apiKey => openAiApiKey;
+        public string aiModel => model;
         public string createPath => createAssetPath;
 
         public const string settingPath = "Assets/Editor/Resources";
@@ -36,6 +38,11 @@ namespace BKK.ChatGPTEditor
         public bool ApiKeyIsEmpty()
         {
             return string.IsNullOrEmpty(apiKey) || string.IsNullOrWhiteSpace(apiKey);
+        }
+
+        public bool ModelIsEmpty()
+        {
+            return string.IsNullOrEmpty(model) || string.IsNullOrWhiteSpace(model);
         }
     }
 }

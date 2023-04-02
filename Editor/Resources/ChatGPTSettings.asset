@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ChatGPTSettings
   m_EditorClassIdentifier: 
   openAiApiKey: 
+  model: text-davinci-003
   createAssetPath: Assets/Editor/ChatGPTAnswers
