@@ -37,7 +37,7 @@ namespace BKK.ChatGPTEditor
 
         public bool ApiKeyIsEmpty()
         {
-            return string.IsNullOrEmpty(apiKey) || string.IsNullOrWhiteSpace(apiKey);
+            return string.IsNullOrEmpty(openAiApiKey) || string.IsNullOrWhiteSpace(openAiApiKey);
         }
 
         public bool ModelIsEmpty()

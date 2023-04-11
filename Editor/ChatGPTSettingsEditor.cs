@@ -37,6 +37,7 @@ namespace BKK.ChatGPTEditor
             EditorGUILayout.PropertyField(m_Model);
             EditorGUILayout.LabelField("Warning: Current text-davinci-003 Only", warnLabelStyle);
             EditorGUILayout.PropertyField(m_CreateAssetPath);
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }
