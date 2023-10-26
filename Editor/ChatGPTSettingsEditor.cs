@@ -33,10 +33,13 @@ namespace BKK.ChatGPTEditor
 
         public override void OnInspectorGUI()
         {
+            serializedObject.Update();
+            
             EditorGUILayout.PropertyField(m_OpenAiApiKey);
             EditorGUILayout.PropertyField(m_Model);
             EditorGUILayout.LabelField("Warning: Current text-davinci-003 Only", warnLabelStyle);
             EditorGUILayout.PropertyField(m_CreateAssetPath);
+            
             serializedObject.ApplyModifiedProperties();
         }
     }
