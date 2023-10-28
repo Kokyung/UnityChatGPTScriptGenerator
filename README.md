@@ -1,7 +1,9 @@
 # Unity ChatGPT Script Generator
 Unity ChatGPT Script Generater provides question ask to ChatGPT and script save in unity asset folder.
 
-<img src="https://user-images.githubusercontent.com/43735316/218822796-48026e66-890d-43b1-ba5f-dca018e35efd.PNG" width="90%" height="90%" title="Unity ChatGPT Script Generator" alt="ChatGPTScriptGenerator"></img><br/>
+**Now GPT-3.5 and GPT4 Supported.**
+
+<img src="https://github.com/Kokyung/UnityChatGPTScriptGenerator/assets/43735316/a6983052-0f0f-4d3e-a765-a905f155326e" width="90%" height="90%" title="Unity ChatGPT Script Generator" alt="ChatGPTScriptGenerator"></img><br/>
 ### How to Install
 
 - Find manifest.json in Packages Folder and Add line like this.
