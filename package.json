@@ -1,6 +1,6 @@
 {
   "name": "com.bkk.chatgptscriptgenerator",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "displayName": "ChatGPT Script Generator",
   "description": "ChatGPT Script Generator provides question ask to ChatGPT and script save in asset folder.",
   "unity": "2020.3",
